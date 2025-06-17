@@ -34,4 +34,8 @@ public class Book {
     public void setBorrowed(boolean borrowed) {
         this.borrowed = borrowed;
     }
+
+    public String convertToString() {
+        return "Dewey Decimal Classification: " + this.deweyDecimal + " Title: " + this.title + " Borrowed: " + this.borrowed;
+    }
 }

@@ -34,4 +34,8 @@ public class Date {
     public void setYear(int year) {
         this.year = year;
     }
+
+    public String convertToString() {
+        return this.day + "/" + this.month + "/" + this.year;
+    }
 }
