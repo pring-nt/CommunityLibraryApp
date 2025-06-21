@@ -1,8 +1,8 @@
 package com.Library;
 
 public class Book {
-    private int deweyDecimal;
-    private String title;
+    private final int deweyDecimal;
+    private final String title;
     private boolean borrowed;
 
     public Book(int deweyDecimal, String title, boolean borrowed) {
@@ -15,16 +15,8 @@ public class Book {
         return this.deweyDecimal;
     }
 
-    public void setDeweyDecimal(int deweyDecimal) {
-        this.deweyDecimal = deweyDecimal;
-    }
-
     public String getTitle() {
         return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public boolean isBorrowed() {
@@ -35,7 +27,8 @@ public class Book {
         this.borrowed = borrowed;
     }
 
-    public String convertToString() {
-        return "Dewey Decimal Classification: " + this.deweyDecimal + " Title: " + this.title + " Borrowed: " + this.borrowed;
+    @Override
+    public String toString() {
+        return "Title: " + this.title + "\tDewey Decimal Classification: " + this.deweyDecimal + "\tBorrowed: " + this.borrowed;
     }
 }
