@@ -1,22 +1,22 @@
 package com.Library;
 
 public class TRDate {
-    private final int day;
-    private final int month;
-    private final int year;
+    private final int DAY;
+    private final int MONTH;
+    private final int YEAR;
 
-    public TRDate(int day, int month, int year) {
-        this.day = day;
-        this.month = month;
-        this.year = year;
+    public TRDate(int D, int M, int Y) {
+        this.DAY = D;
+        this.MONTH = M;
+        this.YEAR = Y;
     }
 
     @Override
     public String toString() {
-        return this.day + "/" + this.month + "/" + this.year;
+        return this.DAY + "/" + this.MONTH + "/" + this.YEAR;
     }
 
     public int convertNumericalDate() {
-        return this.year * 10000 + this.month * 100 + this.day;
+        return this.YEAR * 10000 + this.MONTH * 100 + this.DAY;
     }
 }

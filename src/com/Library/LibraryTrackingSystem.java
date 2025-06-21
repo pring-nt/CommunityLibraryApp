@@ -3,41 +3,41 @@ package com.Library;
 import java.util.*;
 
 public class LibraryTrackingSystem {
-    private final ArrayList<Book> books;
-    private final ArrayList<TransactionRecord> transactionRecords;
+    private final ArrayList<Book> BOOKS;
+    private final ArrayList<TransactionRecord> TRANSACTION_RECORDS;
 
     public LibraryTrackingSystem() {
-        this.books = new ArrayList<>();
-        this.transactionRecords = new ArrayList<>();
+        this.BOOKS = new ArrayList<>();
+        this.TRANSACTION_RECORDS = new ArrayList<>();
 
         Book[] tempBooks = new Book[10];
-        tempBooks[0] = new Book(398, "The Brothers Grimm Fairy Tales", true);
-        tempBooks[1] = new Book(823, "Harry Potter and the Sorcerer's Stone", false);
-        tempBooks[2] = new Book(741, "One Piece: Volume 1", true);
-        tempBooks[3] = new Book(500, "A Brief History of Time", false);
-        tempBooks[4] = new Book(305, "The Second Sex", true);
-        tempBooks[5] = new Book(910, "Around the World in Eighty Days", true);
-        tempBooks[6] = new Book(1, "Cosmos", false);
-        tempBooks[7] = new Book(973, "A People's History of the United States", true);
-        tempBooks[8] = new Book(292, "The Odyssey", false);
-        tempBooks[9] = new Book(741, "Maus", true);
+        tempBooks[0] = new Book(398, "Minecraft: Guide to Survival", true);
+        tempBooks[1] = new Book(823, "Charlotte's Web", false);
+        tempBooks[2] = new Book(741, "Dog Man: Brawl of the Wild", true);
+        tempBooks[3] = new Book(500, "Coding for Kids: Python", false);
+        tempBooks[4] = new Book(305, "What If You Had Animal Teeth?", true);
+        tempBooks[5] = new Book(910, "Magic Tree House: Dinosaurs Before Dark", true);
+        tempBooks[6] = new Book(1, "Minecraft: Redstone Handbook", false);
+        tempBooks[7] = new Book(973, "If You Lived When There Was Slavery in America", true);
+        tempBooks[8] = new Book(5, "How to Code a Sandcastle", false);
+        tempBooks[9] = new Book(741, "Amulet: The Stonekeeper", true);
 
-        this.books.addAll(Arrays.asList(tempBooks));
+        this.BOOKS.addAll(Arrays.asList(tempBooks));
     }
 
     public void displayBooks() {
         System.out.println("\nAll books:");
-        for (Book book : this.books) {
+        for (Book book : this.BOOKS) {
             if (book != null) {
                 System.out.println(book);
             }
         }
     }
 
-    public void displayAvailableBooks(boolean borrowed) {
+    public void displayAvailableBooks(boolean b) {
         System.out.println("\nAvailable books:");
-        for (Book book : this.books) {
-            if (book.isBorrowed() == borrowed) {
+        for (Book book : this.BOOKS) {
+            if (book.isBorrowed() == b) {
                 System.out.println(book);
             }
         }
@@ -46,11 +46,11 @@ public class LibraryTrackingSystem {
     public void displayTransactionRecords() {
         System.out.println("\nTransaction Record:");
         sortTransactionRecord();
-        if (this.transactionRecords.isEmpty()) {
+        if (this.TRANSACTION_RECORDS.isEmpty()) {
             System.out.println("Transaction Records is empty!");
         }
         else {
-            for (TransactionRecord transactionRecord : this.transactionRecords) {
+            for (TransactionRecord transactionRecord : this.TRANSACTION_RECORDS) {
                 if (transactionRecord != null) {
                     System.out.println(transactionRecord);
                 }
@@ -58,13 +58,13 @@ public class LibraryTrackingSystem {
         }
     }
 
-    public void addTransactionRecord(TransactionRecord transactionRecord) {
-        this.transactionRecords.add(transactionRecord);
+    public void addTransactionRecord(TransactionRecord T) {
+        this.TRANSACTION_RECORDS.add(T);
     }
 
-    public void borrowBook(int deweyDecimal, TRDate TRDate) {
-        for (Book book : this.books) {
-            if(book != null && deweyDecimal == book.getDeweyDecimal()) {
+    public void borrowBook(int deweyD, TRDate D) {
+        for (Book book : this.BOOKS) {
+            if(book != null && deweyD == book.getDEWEY_DECIMAL()) {
                 if(book.isBorrowed()) {
                     System.out.println("This book has already been borrowed!");
                 }
@@ -72,7 +72,7 @@ public class LibraryTrackingSystem {
                     System.out.println("Book successfully borrowed!");
                     book.setBorrowed(true);
 
-                    TransactionRecord transactionRecord = new TransactionRecord(TRDate, "Borrow", book);
+                    TransactionRecord transactionRecord = new TransactionRecord(D, "Borrow", book.toString());
                     addTransactionRecord(transactionRecord);
                     System.out.println("\n" + transactionRecord);
                 }
@@ -83,9 +83,9 @@ public class LibraryTrackingSystem {
         System.out.println("ERROR! Book not found.");
     }
 
-    public void borrowBook(String title, TRDate TRDate) {
-        for (Book book : this.books) {
-            if(book != null && title.equalsIgnoreCase(book.getTitle())) {
+    public void borrowBook(String T, TRDate D) {
+        for (Book book : this.BOOKS) {
+            if(book != null && T.equalsIgnoreCase(book.getTITLE())) {
                 if(book.isBorrowed()) {
                     System.out.println("This book has already been borrowed!");
                 }
@@ -93,7 +93,7 @@ public class LibraryTrackingSystem {
                     System.out.println("Book successfully borrowed!");
                     book.setBorrowed(true);
 
-                    TransactionRecord transactionRecord = new TransactionRecord(TRDate, "Borrow", book);
+                    TransactionRecord transactionRecord = new TransactionRecord(D, "Borrow", book.toString());
                     addTransactionRecord(transactionRecord);
                     System.out.println("\n" + transactionRecord);
                 }
@@ -104,14 +104,14 @@ public class LibraryTrackingSystem {
         System.out.println("ERROR! Book not found.");
     }
 
-    public void returnBook(int deweyDecimal, TRDate TRDate) {
-        for (Book book : this.books) {
-            if(book != null && deweyDecimal == book.getDeweyDecimal()) {
+    public void returnBook(int deweyD, TRDate D) {
+        for (Book book : this.BOOKS) {
+            if(book != null && deweyD == book.getDEWEY_DECIMAL()) {
                 if(book.isBorrowed()) {
                     System.out.println("Book successfully returned!");
                     book.setBorrowed(false);
 
-                    TransactionRecord transactionRecord = new TransactionRecord(TRDate, "Return", book);
+                    TransactionRecord transactionRecord = new TransactionRecord(D, "Return", book.toString());
                     addTransactionRecord(transactionRecord);
                     System.out.println("\n" + transactionRecord);
                 }
@@ -125,14 +125,14 @@ public class LibraryTrackingSystem {
         System.out.println("ERROR! Book not found.");
     }
 
-    public void returnBook(String title, TRDate TRDate) {
-        for (Book book : this.books) {
-            if(book != null && title.equalsIgnoreCase(book.getTitle())) {
+    public void returnBook(String T, TRDate D) {
+        for (Book book : this.BOOKS) {
+            if(book != null && T.equalsIgnoreCase(book.getTITLE())) {
                 if(book.isBorrowed()) {
                     System.out.println("Book successfully returned!");
                     book.setBorrowed(false);
 
-                    TransactionRecord transactionRecord = new TransactionRecord(TRDate, "Return", book);
+                    TransactionRecord transactionRecord = new TransactionRecord(D, "Return", book.toString());
                     addTransactionRecord(transactionRecord);
                     System.out.println("\n" + transactionRecord);
                 }
@@ -149,19 +149,19 @@ public class LibraryTrackingSystem {
     private void sortTransactionRecord() {
         TransactionRecord temp;
         int min;
-        int arraySize = this.transactionRecords.size();
+        int arraySize = this.TRANSACTION_RECORDS.size();
         for (int i = 0; i < arraySize; i++) {
             min = i;
             for (int j = i + 1; j < arraySize; j++) {
-                if (this.transactionRecords.get(j).getTransactionDate().convertNumericalDate() > this.transactionRecords.get(min).getTransactionDate().convertNumericalDate()) {
+                if (this.TRANSACTION_RECORDS.get(j).getT_DATE().convertNumericalDate() > this.TRANSACTION_RECORDS.get(min).getT_DATE().convertNumericalDate()) {
                     min = j;
                 }
             }
 
             if(i != min) {
-                temp = this.transactionRecords.get(i);
-                this.transactionRecords.set(i, this.transactionRecords.get(min));
-                this.transactionRecords.set(min, temp);
+                temp = this.TRANSACTION_RECORDS.get(i);
+                this.TRANSACTION_RECORDS.set(i, this.TRANSACTION_RECORDS.get(min));
+                this.TRANSACTION_RECORDS.set(min, temp);
             }
         }
     }

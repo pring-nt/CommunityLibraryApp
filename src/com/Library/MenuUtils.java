@@ -51,7 +51,7 @@ public class MenuUtils {
         }
     }
 
-    public static TRDate readDate(Scanner scanner) {
+    private static TRDate readDate(Scanner scanner) {
         System.out.println("Enter today's date:");
         System.out.print("Day (DD): ");
         int day = scanner.nextInt();

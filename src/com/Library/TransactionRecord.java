@@ -1,23 +1,23 @@
 package com.Library;
 
 public class TransactionRecord {
-    private final TRDate transactionDate;
-    private final String transactionType;
-    private final Book book;
+    private final TRDate T_DATE;
+    private final String TYPE;
+    private final String BOOK_INFO;
 
-    public TransactionRecord(TRDate transactionTRDate, String transactionType, Book book) {
-        this.transactionDate = transactionTRDate;
-        this.transactionType = transactionType;
-        this.book = book;
+    public TransactionRecord(TRDate D, String T, String I) {
+        this.T_DATE = D;
+        this.TYPE = T;
+        this.BOOK_INFO = I;
     }
 
-    public TRDate getTransactionDate() {
-        return transactionDate;
+    public TRDate getT_DATE() {
+        return T_DATE;
     }
 
     @Override
     public String toString() {
-        return "Transaction Date: " + this.transactionDate + "\tTransaction Type: "
-                + this.transactionType + "\n" + this.book;
+        return "Transaction Date: " + this.T_DATE + "\tTransaction Type: "
+                + this.TYPE + "\n" + this.BOOK_INFO;
     }
 }
